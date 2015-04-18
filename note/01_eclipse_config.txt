@@ -1,0 +1,9 @@
+---------------------------------------------------------
+---------------------------------------------------------
+-------- Change maven project module verison to 3.0 -----
+---------------------------------------------------------
+---------------------------------------------------------
+1. Change the web.xml to right version
+2. Right click project -> Preference -> Project facets
+-> Uncheck the Dynamic module
+3. Right clicke project -> Maven -> Update porject

@@ -1,4 +1,4 @@
-package ca.webvue.ecom.esales.domain;
+package ca.webvue.ecom.esales.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -18,6 +18,8 @@ import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Resolution;
 import org.hibernate.search.annotations.Store;
 
+import ca.webvue.ecom.esales.entity.listener.EntityListener;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -29,9 +31,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 
 @JsonAutoDetect(fieldVisibility = Visibility.NONE, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE, creatorVisibility = Visibility.NONE)
-@EntityListeners(DomainModelListener.class)
+@EntityListeners(EntityListener.class)
 @MappedSuperclass
-public class BaseModel implements Serializable {
+public class BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -106,10 +108,10 @@ public class BaseModel implements Serializable {
 		if (this == obj) {
 			return true;
 		}
-		if (!BaseModel.class.isAssignableFrom(obj.getClass())) {
+		if (!BaseEntity.class.isAssignableFrom(obj.getClass())) {
 			return false;
 		}
-		BaseModel other = (BaseModel) obj;
+		BaseEntity other = (BaseEntity) obj;
 		return getId() != null ? getId().equals(other.getId()) : false;
 	}
 	

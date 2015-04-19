@@ -1,2 +1,5 @@
 eclipse.preferences.version=1
-encoding//src/main/java/ca/webvue/ecom/esales/domain/ProductCategory.java=UTF-8
+encoding//src/main/java/ca/webvue/ecom/esales/entity/ProductCategory.java=UTF-8
+encoding//src/main/java/ca/webvue/ecom/esales/search/Filter.java=UTF-8
+encoding//src/main/java/ca/webvue/ecom/esales/search/Order.java=UTF-8
+encoding/<project>=UTF-8

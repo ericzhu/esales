@@ -1,4 +1,4 @@
-package ca.webvue.ecom.esales.domain;
+package ca.webvue.ecom.esales.entity;
 
 import javax.persistence.Column;
 import javax.validation.constraints.Min;
@@ -10,7 +10,7 @@ import org.hibernate.search.annotations.Store;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class OrderModel extends BaseModel {
+public class OrderEntity extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -30,7 +30,7 @@ public class OrderModel extends BaseModel {
 		this.order = order;
 	}
 	
-	public int compareTo(OrderModel orderModel) {
-		return new CompareToBuilder().append(getOrder(), orderModel.getOrder()).append(getId(), orderModel.getId()).toComparison();
+	public int compareTo(OrderEntity orderEntity) {
+		return new CompareToBuilder().append(getOrder(), orderEntity.getOrder()).append(getId(), orderEntity.getId()).toComparison();
 	}
 }

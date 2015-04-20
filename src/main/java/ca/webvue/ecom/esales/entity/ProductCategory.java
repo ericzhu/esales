@@ -8,6 +8,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
@@ -37,7 +39,8 @@ public class ProductCategory extends OrderEntity {
 	private ProductCategory parent;
 
 	private Set<ProductCategory> children = new HashSet<ProductCategory>();
-
+	private Set<Brand> brands = new HashSet<Brand>();
+	
 	@NotEmpty
 	@Length(max = 200)
 	@Column(nullable = false)
@@ -111,6 +114,17 @@ public class ProductCategory extends OrderEntity {
 
 	public void setChildren(Set<ProductCategory> children) {
 		this.children = children;
+	}
+
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "xx_product_category_brand")
+	@OrderBy("order asc")
+	public Set<Brand> getBrands() {
+		return brands;
+	}
+
+	public void setBrands(Set<Brand> brands) {
+		this.brands = brands;
 	}
 
 	@Transient

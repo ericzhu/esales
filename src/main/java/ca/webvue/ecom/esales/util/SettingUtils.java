@@ -110,8 +110,8 @@ public class SettingUtils {
 		} else {
 			setting = new Setting();
 			try {
-				File shopxxXmlFile = new ClassPathResource(CommonAttributes.ESALES_XML_PATH).getFile();
-				Document document = new SAXReader().read(shopxxXmlFile);
+				File esalesXmlFile = new ClassPathResource(CommonAttributes.ESALES_XML_PATH).getFile();
+				Document document = new SAXReader().read(esalesXmlFile);
 				List<Element> elements = document.selectNodes("/esales/setting");
 				for (Element element : elements) {
 					String name = element.attributeValue("name");
